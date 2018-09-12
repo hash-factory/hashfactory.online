@@ -11,7 +11,7 @@ router.post('/contact/subscribe', function (req, res) {
         service: 'Gmail',
         auth: {
             user: 'electronero.official@gmail.com',
-            pass: 'bpowwhfuopfagzpq'
+            pass: 'sugozfveurzyyraq'
         }
         
     });
@@ -21,7 +21,7 @@ router.post('/contact/subscribe', function (req, res) {
         to: 'etxsub.ou4jbg@zapiermail.com, electronero.official@gmail.com, electronerodev@gmail.com', // receivers address
         subject: req.body.email, // subject added to sheet
         text: 'The following subscriber has requested contact and/or reply from the Electronero team', // text body
-        html: '<p>Electronero Form Submission:</p><ul><li>' +req.body.email+ '</li>' + '</ul>'
+        html: '<p>HashFactory Form Submission:</p><ul><li>' +req.body.email+ '</li>' + '</ul>'
     }
     transporter.sendMail(mailOption, function (error, info) {
         console.log(info);
@@ -42,7 +42,7 @@ router.post('/contact/send', function (req, res) {
         service: 'Gmail',
         auth: {
             user: 'electronero.official@gmail.com',
-            pass: 'ejsliemtbuzsggux'
+            pass: 'vuqdmxkngmwfepfc'
         }
         
     });
@@ -57,7 +57,7 @@ router.post('/contact/send', function (req, res) {
         to: sendFormToStaff, // staff addresses
         subject: formSubmittedEmail, // email in subject
         text: formSubmittedMessage, // text body to the left, and HTML body below
-        html: '<p>Electronero Form Submission:</p><ul>Name: <li>' + formSubmittedName + '</li>Email: <li>' + formSubmittedEmail + '</li>Message: <li>' + formSubmittedMessage + '</li></ul>'
+        html: '<p>Hash Factory Form Submission:</p><ul>Name: <li>' + formSubmittedName + '</li>Email: <li>' + formSubmittedEmail + '</li>Message: <li>' + formSubmittedMessage + '</li></ul>'
     }
     transporter.sendMail(mailOption, function (error, info) {
         console.log(info);
