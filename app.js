@@ -12,6 +12,7 @@ var blog = require('./routes/blog');
 var docs = require('./routes/docs'); 
 var legal = require('./routes/legal'); 
 var contact = require('./routes/contact');
+var hardfork = require('./routes/hardfork'); 
 
 var app = express();
 
@@ -35,7 +36,7 @@ app.use('/public', serveIndex('public')); // shows you the public folder file li
 app.use('/public', express.static('public')); // serve the files inside public ...when you get /public
 
 app.use('/', index); 
-app.use('/blog', blog); // add blog route
+app.use('/blog', blog); // add blog route 
 app.use('/doc', docs); // add doc route 
 app.use('/docs', docs); // add docs route 
 app.use('/user-guides', docs); // add user-guides route 
@@ -43,6 +44,7 @@ app.use('/user-guide', docs); // add user-guide route
 app.use('/legal', legal); // add legal route 
 app.use('/tos', legal); // add tos route
 app.use('/privacy', legal); // add privacy route
+app.use('/hardfork', blog); // add hardfork route 
 app.use('/', contact);
 
 // catch 404 and forward to error handler
