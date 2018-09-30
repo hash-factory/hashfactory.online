@@ -1,0 +1,36 @@
+table {
+    border-collapse: collapse;
+    margin: 10px 0;
+    border-top: 3px solid #444499;
+    border-bottom: 3px solid #444499;
+	color: white;
+}
+table thead tr {
+    border-bottom: 3px solid #444499;
+}
+tr {
+    margin: 0;
+}
+td {
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+}
+thead td {
+    cursor: row-resize;
+}
+thead td::before {
+    content: "";
+    font-size: 125%;
+    padding-right: 2px;
+}
+thead td.asc::before {
+    content: "";
+}
+thead td.desc::before {
+    content: "";
+}
+
+td.name, td.location {
+    text-align: left;
+}
