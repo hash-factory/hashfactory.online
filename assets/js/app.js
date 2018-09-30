@@ -712,7 +712,7 @@ function fetchLiveStats() {
     });
  // ETNX
     $.ajax({
-        url: 'http://cloud.electronero.org/api/network/stats',
+        url: 'https://cloud.electronero.org/api/network/stats',
         dataType: 'json',
         cache: 'false'
     }).done(function(data){
@@ -725,7 +725,7 @@ function fetchLiveStats() {
 		updateText('etnxNetworkTS', timeSince(etnxNetworkStats.ts), newColor);
     });	
     $.ajax({
-        url: 'http://cloud.electronero.org/api/pool/stats/pplns',
+        url: 'https://cloud.electronero.org/api/pool/stats/pplns',
         dataType: 'json',
         cache: 'false'
     }).done(function(data){
@@ -739,7 +739,7 @@ function fetchLiveStats() {
 		updateText('etnxBlockFound', timeSince(etnxPool.pool_statistics.lastBlockFoundTime));
     });
 	$.ajax({
-        url: 'http://cloud.electronero.org/api/pool/payments',
+        url: 'https://cloud.electronero.org/api/pool/payments',
         dataType: 'json',
         cache: 'false'
     }).done(function(data){
@@ -747,6 +747,44 @@ function fetchLiveStats() {
 		var newColor;
 		if (data[0] && data[0].ts/1000 < etnxPool.pool_statistics.lastBlockFoundTime) newColor = "Red"; else newColor = false;
 		if (data[0]) updateText('etnxLastPayment', timeSince(data[0].ts/1000), newColor);
+    });
+ // ETNXP
+    $.ajax({
+        url: 'https://cloud.electroneropulse.org/api/network/stats',
+        dataType: 'json',
+        cache: 'false'
+    }).done(function(data){
+        if (!data) exit;
+        etnxpNetworkStats = data["12090"];
+        updateText('etnxNetworkHashrate', getReadableHashRateString(etnxpNetworkStats.difficulty / 60) + '/S');
+        
+        var newColor;
+        if ((new Date()/ 1000) - data.ts > 30*60) newColor = "Red"; else newColor = false;
+        updateText('etnxNetworkTS', timeSince(etnxpNetworkStats.ts), newColor);
+    }); 
+    $.ajax({
+        url: 'https://cloud.electroneropulse.org/api/pool/stats/pplns',
+        dataType: 'json',
+        cache: 'false'
+    }).done(function(data){
+        if (!data || !etnxpNetworkStats) exit;
+        etnxpPool = data;
+        etnxpPrice = data.pool_statistics.price.usd; 
+        updateText('etnxpPrice',(etnxPrice * 1).toFixed(7) + ' USD' + " (over 24h : "+data.pool_statistics.price.change24h+"%)");
+        updateText('etnxpProfit',((1000/etnxNetworkStats.difficulty)*86400*7*(etnxNetworkStats.value / 100)*etnxpPrice).toFixed(3) + ' USD');
+        updateText('etnxpPoolHashrate', getReadableHashRateString(etnxpPool.pool_statistics.hashRate) + '/S');
+        updateText('etnxpMiners', etnxpPool.pool_statistics.miners);
+        updateText('etnxpBlockFound', timeSince(etnxpPool.pool_statistics.lastBlockFoundTime));
+    });
+    $.ajax({
+        url: 'https://cloud.electroneropulse.org/api/pool/payments',
+        dataType: 'json',
+        cache: 'false'
+    }).done(function(data){
+        if (!data || !etnxpPool) exit;
+        var newColor;
+        if (data[0] && data[0].ts/1000 < etnxpPool.pool_statistics.lastBlockFoundTime) newColor = "Red"; else newColor = false;
+        if (data[0]) updateText('etnxpLastPayment', timeSince(data[0].ts/1000), newColor);
     });
  // BBS
     $.ajax({
@@ -818,6 +856,7 @@ updateText('xtlLastPayment', "N/A");
 updateText('msrLastPayment', "N/A");
 updateText('lokLastPayment', "N/A");
 updateText('etnxLastPayment', "N/A");
+updateText('etnxpLastPayment', "N/A");
 updateText('bbsLastPayment', "N/A");
 setInterval(function(){
     fetchLiveStats();
