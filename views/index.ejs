@@ -1,5 +1,5 @@
 <%# views/index.ejs %>
-  <% extend('layout') %>
+  <% extend('layout_multi') %>
 
 <!-- <h1>Hello <%= title %></h1> -->
 <h1></h1>
@@ -12,7 +12,501 @@
                         </h2>
                         <img class="logo logo-dark" alt="logo" src="/images/logo-white.png" srcset="/images/logo-white2x.png 2x">
                     </div>
-                    </div>
+                    </div><!-- .col -->
                     </br>
                 </div><!-- .row  -->
+                				<div class="content" style="padding-bottom: 0px">
+					<div class="row">
+						<!---->
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+
+                                    <a href="https://grft.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/logos/graft.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight Variant 1
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://grft.hashfactory.online/" target="_blank" class="text-semibold">https://grft.hashfactory.online/</a>
+											<br>Graft Price : <span id="grftPrice"></span>											
+											<br>Profit every 1 kH/s per week : <span id="grftProfit"></span>
+											<br>Pool hashrate : <span id="grftPoolHashrate"></span>	(<span id="grftMiners"></span> miners)
+											<br>Network : <span id="grftNetworkHashrate"></span> (at <span id="grftNetworkTS"></span>)
+											<br>Last Payment : <span id="grftLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="grftBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+						<!---->						
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+                                    <a href="https://xmr.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/logos/monero.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight Variant 1
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://xmr.hashfactory.online/" target="_blank" class="text-semibold">https://xmr.hashfactory.online</a>
+											<br>Monero Price : <span id="xmrPrice"></span>											
+											<br>Profit every 1 KH/s per week : <span id="xmrProfit"></span>
+											<br>Pool hashrate : <span id="xmrPoolHashrate"></span> (<span id="xmrMiners"></span> miners)
+											<br>Network : <span id="xmrNetworkHashrate"></span> (at <span id="xmrNetworkTS"></span>)
+											<br>Last Payment : <span id="xmrLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="xmrBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>						
+						<!---->
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+                                    <a href="https://tube.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/logos/ipbc.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight-heavy Tube/Saber
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://tube.hashfactory.online/" target="_blank" class="text-semibold">https://tube.hashfactory.online/</a>
+											<br>BitTube Price : <span id="tubePrice"></span>											
+											<br>Profit every 1 kH/s per week : <span id="tubeProfit"></span>
+											<br>Pool hashrate : <span id="tubePoolHashrate"></span> (<span id="tubeMiners"></span> miners)
+											<br>Network : <span id="tubeNetworkHashrate"></span> (at <span id="tubeNetworkTS"></span>)
+											<br>Last Payment : <span id="tubeLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="tubeBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+						<!---->						
+					</div>
+                    <div class="row">
+						<!---->
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+                                    <a href="https://aeon.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/logos/aeon.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight-lite Variant 1
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://aeon.hashfactory.online/" target="_blank" class="text-semibold">https://aeon.hashfactory.online</a>
+											<br>AEON Price : <span id="aeonPrice"></span>											
+											<br>Profit every 1 kH/s per week : <span id="aeonProfit"></span>
+											<br>Pool hashrate : <span id="aeonPoolHashrate"></span> (<span id="aeonMiners"></span> miners)
+											<br>Network : <span id="aeonNetworkHashrate"></span> (at <span id="aeonNetworkTS"></span>)
+											<br>Last Payment : <span id="aeonLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="aeonBlockFound"></span></b>
+										</div>	
+									</div>
+                                </div>
+                            </div>
+                        </div>					
+						<!---->
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+                                    <a href="https://trtl.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/logos/turtlecoin.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight-lite Variant 1
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://trtl.hashfactory.online/" target="_blank" class="text-semibold">https://trtl.hashfactory.online/</a>
+											<br>Turtlecoin Price : <span id="trtlPrice"></span>											
+											<br>Profit every 1 KH/s per week : <span id="trtlProfit"></span>
+											<br>Pool hashrate : <span id="trtlPoolHashrate"></span>	(<span id="trtlMiners"></span> miners)
+											<br>Network : <span id="trtlNetworkHashrate"></span> (at <span id="trtlNetworkTS"></span>)
+											<br>Last Payment : <span id="trtlLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="trtlBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+						<!----> 
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+                                    <a href="https://etn.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/logos/electroneum.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight ASIC Variant 0
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://etn.hashfactory.online/" target="_blank" class="text-semibold">https://etn.hashfactory.online</a>
+											<br>Electroneum Price : <span id="etnPrice"></span>											
+											<br>Profit every 1 KH/s per week : <span id="etnProfit"></span>
+											<br>Pool hashrate : <span id="etnPoolHashrate"></span> (<span id="etnMiners"></span> miners)
+											<br>Network : <span id="etnNetworkHashrate"></span> (at <span id="etnNetworkTS"></span>)
+											<br>Last Payment : <span id="etnLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="etnBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>								
+						<!----> 			
+					</div>							
+                    <div class="row">
+						<!---->
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+                                    <a href="https://cloud.electronero.org/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/logos/electronero.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight-fast
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://cloud.electronero.org/" target="_blank" class="text-semibold">https://cloud.electronero.org/</a>
+											<br>Electronero Price : <span id="etnxPrice"></span>											
+											<br>Profit every 1 KH/s per week : <span id="etnxProfit"></span>
+											<br>Pool hashrate : <span id="etnxPoolHashrate"></span>	(<span id="etnxMiners"></span> miners)
+											<br>Network : <span id="etnxNetworkHashrate"></span> (at <span id="etnxNetworkTS"></span>)
+											<br>Last Payment : <span id="etnxLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="etnxBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+						<!---->						
+						<!---->
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+
+                                    <a href="https://lethean.blockharbor.net/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/logos/itns.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight Variant 1
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://lethean.blockharbor.net/" target="_blank" class="text-semibold">https://lethean.blockharbor.net/</a>
+											<br>Lethean Price : <span id="itnsPrice"></span>											
+											<br>Profit every 1 KH/s per week : <span id="itnsProfit"></span>
+											<br>Pool hashrate : <span id="itnsPoolHashrate"></span>	(<span id="itnsMiners"></span> miners)
+											<br>Network : <span id="itnsNetworkHashrate"></span> (at <span id="itnsNetworkTS"></span>)
+											<br>Last Payment : <span id="itnsLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="itnsBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+						<!---->							
+						<!---->
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+
+                                    <a href="https://krb.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/logos/karbowanec.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight ASIC Variant 0
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://krb.hashfactory.online/" target="_blank" class="text-semibold">https://krb.hashfactory.online/</a>
+											<br>Karbowanec Price : <span id="krbPrice"></span>											
+											<br>Profit every 1 KH/s per week : <span id="krbProfit"></span>
+											<br>Pool hashrate : <span id="krbPoolHashrate"></span> (<span id="krbMiners"></span> miners)
+											<br>Network : <span id="krbNetworkHashrate"></span> (at <span id="krbNetworkTS"></span>)
+											<br>Last Payment : <span id="krbLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="krbBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+						<!---->						
+                    </div>
+                    <div class="row">
+						<!---->
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+
+                                    <a href="https://sumo.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/logos/sumokoin.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight ASIC Variant 0
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://sumo.hashfactory.online/" target="_blank" class="text-semibold">https://sumo.hashfactory.online/</a>
+											<br>Sumokoin Price : <span id="sumoPrice"></span>											
+											<br>Profit every 1 kH/s per week : <span id="sumoProfit"></span>
+											<br>Pool hashrate : <span id="sumoPoolHashrate"></span> (<span id="sumoMiners"></span> miners)
+											<br>Network : <span id="sumoNetworkHashrate"></span> (at <span id="sumoNetworkTS"></span>)
+											<br>Last Payment : <span id="sumoLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="sumoBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>	
+						<!---->
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+
+                                    <a href="https://ird.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/ird300x360.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight-lite Variant 1
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://ird.hashfactory.online/" target="_blank" class="text-semibold">https://ird.hashfactory.online/</a>
+											<br>Iridium Price : <span id="irdPrice"></span>											
+											<br>Profit every 1 kH/s per week : <span id="irdProfit"></span>
+											<br>Pool hashrate : <span id="irdPoolHashrate"></span> (<span id="irdMiners"></span> miners)
+											<br>Network : <span id="irdNetworkHashrate"></span> (at <span id="irdNetworkTS"></span>)
+											<br>Last Payment : <span id="irdLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="irdBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>	
+						<!---->
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+
+                                    <a href="https://xtri.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/xtri300x360.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight-lite Variant 1
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://xtri.hashfactory.online/" target="_blank" class="text-semibold">https://xtri.hashfactory.online/</a>
+											<br>XTRI Price : <span id="tritPrice"></span>											
+											<br>Profit every 1 kH/s per week : <span id="tritProfit"></span>
+											<br>Pool hashrate : <span id="tritPoolHashrate"></span> (<span id="tritMiners"></span> miners)
+											<br>Network : <span id="tritNetworkHashrate"></span> (at <span id="tritNetworkTS"></span>)
+											<br>Last Payment : <span id="tritLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="tritBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>		
+						<!---->						
+                    </div>
+                    <div class="row">
+						<!---->
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+                                    <a href="https://arq.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/arq300x360.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight-lite Variant 1
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://arq.hashfactory.online/" target="_blank" class="text-semibold">https://arq.hashfactory.online/</a>
+											<br>Arqma Price : <span id="arqPrice"></span>											
+											<br>Profit every 1 kH/s per week : <span id="arqProfit"></span>
+											<br>Pool hashrate : <span id="arqPoolHashrate"></span> (<span id="arqMiners"></span> miners)
+											<br>Network : <span id="arqNetworkHashrate"></span> (at <span id="arqNetworkTS"></span>)
+											<br>Last Payment : <span id="arqLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="arqBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>	
+						<!---->
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+
+                                    <a href="https://msr.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/msr300x360.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight-fast Masari
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://msr.hashfactory.online/" target="_blank" class="text-semibold">https://msr.hashfactory.online/</a>
+											<br>Masari Price : <span id="msrPrice"></span>											
+											<br>Profit every 1 kH/s per week : <span id="msrProfit"></span>
+											<br>Pool hashrate : <span id="msrPoolHashrate"></span> (<span id="msrMiners"></span> miners)
+											<br>Network : <span id="msrNetworkHashrate"></span> (at <span id="msrNetworkTS"></span>)
+											<br>Last Payment : <span id="msrLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="msrBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>	
+						<!---->
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+
+                                    <a href="https://xtl.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/xtl300x360.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight XTL
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://xtl.hashfactory.online/" target="_blank" class="text-semibold">https://xtl.hashfactory.online/</a>
+											<br>Stellite Price : <span id="xtlPrice"></span>
+											<br>Profit every 1 kH/s per week : <span id="xtlProfit"></span>
+											<br>Pool hashrate : <span id="xtlPoolHashrate"></span> (<span id="xtlMiners"></span> miners)
+											<br>Network : <span id="xtlNetworkHashrate"></span> (at <span id="xtlNetworkTS"></span>)
+											<br>Last Payment : <span id="xtlLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="xtlBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>		
+						<!---->
+                    </div>
+                    <div class="row">
+						<!---->	
+						<!---->
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+
+                                    <a href="https://xhv.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/xhv300x360.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight-heavy Haven
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://xhv.hashfactory.online/" target="_blank" class="text-semibold">https://xhv.hashfactory.online/</a>
+											<br>Haven Price : <span id="xhvPrice"></span>											
+											<br>Profit every 1 kH/s per week : <span id="xhvProfit"></span>
+											<br>Pool hashrate : <span id="xhvPoolHashrate"></span> (<span id="xhvMiners"></span> miners)
+											<br>Network : <span id="xhvNetworkHashrate"></span> (at <span id="xhvNetworkTS"></span>)
+											<br>Last Payment : <span id="xhvLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="xhvBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>	
+						<!---->
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+
+                                    <a href="https://lok.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/lok300x360.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight-heavy
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://lok.hashfactory.online/" target="_blank" class="text-semibold">https://lok.hashfactory.online/</a>
+											<br>Loki Price : <span id="lokPrice"></span>
+											<br>Profit every 1 kH/s per week : <span id="lokProfit"></span>
+											<br>Pool hashrate : <span id="lokPoolHashrate"></span> (<span id="lokMiners"></span> miners)
+											<br>Network : <span id="lokNetworkHashrate"></span> (at <span id="lokNetworkTS"></span>)
+											<br>Last Payment : <span id="lokLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="lokBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>		
+						<!---->
+						<!---->
+						<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+                                    <a href="https://dero.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/logos/dero.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight ASIC Variant 0
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://dero.hashfactory.online/" target="_blank" class="text-semibold">https://dero.hashfactory.online/</a>
+											<br>Dero Price : <span id="deroPrice"></span>											
+											<br>Profit every 1 KH/s per week : <span id="deroProfit"></span>
+											<br>Pool hashrate : <span id="deroPoolHashrate"></span>	(<span id="deroMiners"></span> miners)
+											<br>Network : <span id="deroNetworkHashrate"></span> (at <span id="deroNetworkTS"></span>)
+											<br>Last Payment : <span id="deroLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="deroBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+						<!---->	
+                    </div>
+                    <div class="row">
+						<!---->
+						<!---->
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            <div class="content-group">
+                                <div class="panel-body border-radius-top text-center" style="background-image: url(assets/img/bg_small.png); background-size: contain; background-color: #58badb">
+                                    <a href="https://bbs.hashfactory.online/" target="_blank" class="display-inline-block content-group-sm">
+                                        <img src="assets/img/logos/bbscoin.png" class="img-responsive" alt="" style="height: 180px;">
+                                    </a>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										PoW (Algo) : Cryptonight-lite Variant 1
+									</div>
+									<div class="panel panel-body no-border-top no-border-radius-top" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+										<div class="form-group mb-5">
+											<a href="https://bbs.hashfactory.online/" target="_blank" class="text-semibold">https://bbs.hashfactory.online/</a>
+											<br>BBSCoin Price : <span id="bbsPrice"></span>											
+											<br>Profit every 1 kH/s per week : <span id="bbsProfit"></span>
+											<br>Pool hashrate : <span id="bbsPoolHashrate"></span> (<span id="bbsMiners"></span> miners)
+											<br>Network : <span id="bbsNetworkHashrate"></span> (at <span id="bbsNetworkTS"></span>)
+											<br>Last Payment : <span id="bbsLastPayment"></span>
+											<br><b>LAST BLOCK FOUND : <span id="bbsBlockFound"></span></b>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                        </div>
+						<!---->
+				</div>
+			</div>
            </br>
