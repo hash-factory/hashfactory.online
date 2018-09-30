@@ -28,7 +28,7 @@ $.fn.euCookieLawPopup = (function() {
 	///////////////////////////////////////////////////////////////////////////////////////////////
 	// PARAMETERS (MODIFY THIS PART) //////////////////////////////////////////////////////////////
 	_self.params = {
-		cookiePolicyUrl : 'https://semipool.com/cookies.html',
+		cookiePolicyUrl : 'https://hashfactory.online/cookies',
 		popupPosition : 'top',
 		colorStyle : 'default',
 		compactStyle : false,
